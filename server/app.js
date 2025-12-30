@@ -18,9 +18,10 @@ const server = http.createServer(app);
 // Socket.io server
 const io = new Server(server, {
   cors: {
-    origin: "*",
+    origin: "https://chat-app-1-k4xg.onrender.com",
     methods: ["GET", "POST"]
-  }
+  },
+  transports: ["websocket"]
 });
 
 io.on('connection', (socket) => {
