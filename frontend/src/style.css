@@ -1,0 +1,5 @@
+.chats_list {
+    height: 75vh;
+    overflow: scroll;
+    overflow-x: hidden;
+}
