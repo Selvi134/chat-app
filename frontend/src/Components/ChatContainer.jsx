@@ -13,12 +13,15 @@ const ChatContainer = () => {
 
   useEffect(() => {
     socketRef.current = socketIOClient(
-      import.meta.env.VITE_BACKEND_URL,
-      {
-        transports: ['websocket'], // ✅ mobile-friendly
-        secure: true
-      }
-    );
+  import.meta.env.VITE_BACKEND_URL,
+  {
+    transports: ["websocket"],
+    secure: true,
+    reconnection: true,
+    reconnectionAttempts: 5
+  }
+);
+
 
     socketRef.current.on('chat', (chats) => {
       setChats(chats);
